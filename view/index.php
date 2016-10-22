@@ -4,6 +4,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
+use Doctrine\Common\Inflector\Inflector;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,6 +45,16 @@ use Monolog\Handler\StreamHandler;
                         // add records to the log
                         $log->warning('Foo');
                         echo 'log add';
+                        ?>
+                    </h4>
+                </section>
+                <section  class="col-lg-12">
+                    <h4>
+                        <?php
+                        $string = "reality is quite different than it actually is";
+                        $word = 'P_H_P';
+                        echo '"reality is quite different than it actually is" => '.Inflector::ucwords($string).'<br/>'; //Uppercases words with configurable delimeters between words.
+                        echo '"P_H_P" => '.Inflector::classify($word); //Converts a word into the format for a Doctrine class name.
                         ?>
                     </h4>
                 </section>
